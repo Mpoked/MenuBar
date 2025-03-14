@@ -23,39 +23,22 @@ public class GUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400, 300);
 
+        JMenuBar jmenuBar = new JMenuBar();
+        setJMenuBar(jmenuBar);
 
-        JMenuBar menuBar = new JMenuBar();
-        menuBar.getAccessibleContext().setAccessibleDescription("textová popiska menu");
+        JMenu menu = new JMenu("Soubor");
+        jmenuBar.add(menu);
 
-        // Vytvoření menu
-        JMenu fileMenu = new JMenu("File");
-        JMenu editMenu = new JMenu("Edit");
-        JMenu helpMenu = new JMenu("Help");
+        JMenuItem openItem = new JMenuItem("Otevřít");
+        JMenuItem saveItem = new JMenuItem("Uložit");
 
-        // Vytvoření položek menu
-        JMenuItem newItem = new JMenuItem("New");
-        JMenuItem openItem = new JMenuItem("Open");
-        JMenuItem saveItem = new JMenuItem("Save");
-        JMenuItem exitItem = new JMenuItem("Exit");
+        menu.add(openItem);
+        menu.add(saveItem);
 
-        // Přidání položek do menu
-        fileMenu.add(newItem);
-        fileMenu.add(openItem);
-        fileMenu.add(saveItem);
-        fileMenu.addSeparator();
-        fileMenu.add(exitItem);
-
-        // Přidání menu do menu baru
-        menuBar.add(fileMenu);
-        menuBar.add(editMenu);
-        menuBar.add(helpMenu);
-
-        // Nastavení menu baru do hlavního okna
-        setJMenuBar(menuBar);
-
-        openItem.addActionListener(e -> vyberSoubor());
         saveItem.addActionListener(e -> zapisSouboru());
+        openItem.addActionListener(e -> vyberSoubor());
     }
+
 
     public void zapis(){
         txArea.append("Ahoj\n");
