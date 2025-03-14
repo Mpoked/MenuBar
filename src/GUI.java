@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,7 +9,6 @@ public class GUI extends JFrame {
     private JTextArea txArea;
     private JPanel pnMain;
     private String cesta;
-    private String nazevSouboru;
 
 
     public GUI(){
@@ -39,10 +36,6 @@ public class GUI extends JFrame {
         openItem.addActionListener(e -> vyberSoubor());
     }
 
-
-    public void zapis(){
-        txArea.append("Ahoj\n");
-    }
 
     public void vyberSoubor(){
         JFileChooser fc = new JFileChooser();
